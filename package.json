@@ -14,6 +14,7 @@
   },
   "scripts": {
     "build": "grunt",
-    "start": "node serve"
+    "start": "node serve",
+    "postinstall": "grunt"
   }
 }
