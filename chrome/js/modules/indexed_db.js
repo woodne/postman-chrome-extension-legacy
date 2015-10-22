@@ -786,7 +786,6 @@ pm.indexedDB = {
         }
     },
 
-<<<<<<< HEAD
     driveFiles: {
         addDriveFile:function (driveFile, callback) {
             var db = pm.indexedDB.db;
@@ -1089,41 +1088,6 @@ pm.indexedDB = {
         
         //Get collections
         //Get header presets
-        pm.indexedDB.getCollections(function (items) {    
-            totalCount = items.length;        
-            pm.collections.items = items;
-            var itemsLength = items.length;
-
-            if (itemsLength !== 0) {                
-                for (var i = 0; i < itemsLength; i++) {
-                    var collection = items[i];
-                    pm.indexedDB.getAllRequestsInCollection(collection, function (collection, requests) {
-                        collection.requests = requests;       
-
-                        onFinishGettingCollectionRequests(collection);                 
-                    });
-                }
-            }
-        });
-    },
-
-    importAllData: function(callback) {                
-
-            var name = "Backup.postman_dump";
-            var filedata = JSON.stringify(dump);
-            var type = "application/json";
-
-            console.log("File data is ", filedata);
-
-            pm.filesystem.saveAndOpenFile(name, filedata, type, function () {
-                if (callback) {
-                    callback();
-                }
-            });
-        }
-
-        //Get collections
-        //Get header presets
         pm.indexedDB.getCollections(function (items) {
             totalCount = items.length;
             pm.collections.items = items;
@@ -1150,6 +1114,20 @@ pm.indexedDB = {
                         onFinishExporttingAllData(callback);
                     });
                 });
+            }
+        });
+    },
+
+    importAllData: function(callback) {                
+        var name = "Backup.postman_dump";
+        var filedata = JSON.stringify(dump);
+        var type = "application/json";
+
+        console.log("File data is ", filedata);
+
+        pm.filesystem.saveAndOpenFile(name, filedata, type, function () {
+            if (callback) {
+                callback();
             }
         });
     }

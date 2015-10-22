@@ -40,14 +40,9 @@ pm.layout = {
     },
 
     init:function () {
-<<<<<<< HEAD
         pm.layout.detectLauncher();
 
         pm.layout.dataDump.init();
-
-=======
-        pm.layout.detectLauncher()
->>>>>>> master
 
         if (pm.settings.get("haveDonated") == true) {
             console.log("Donated");
