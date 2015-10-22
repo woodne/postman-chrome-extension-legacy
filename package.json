@@ -15,6 +15,6 @@
   "scripts": {
     "build": "grunt",
     "start": "node serve",
-    "postinstall": "./node_modules/.bin/grunt"
+    "postinstall": "npm run build"
   }
 }
