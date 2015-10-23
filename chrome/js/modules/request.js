@@ -1206,10 +1206,10 @@ pm.request = {
         },
 
         loadCookies:function (url) {
-            chrome.cookies.getAll({url:url}, function (cookies) {
-                var count;
-                pm.request.response.renderCookies(cookies);
-            });
+            // chrome.cookies.getAll({url:url}, function (cookies) {
+            //     var count;
+            //     pm.request.response.renderCookies(cookies);
+            // });
         },
 
         setFormat:function (language, response, format, forceCreate) {
@@ -1814,7 +1814,7 @@ pm.request = {
     processUrl:function (url) {
         var finalUrl = pm.envManager.getCurrentValue(url);
         finalUrl = ensureProperUrl(finalUrl);
-        return finalUrl;
+        return '/proxy?url=' + finalUrl;
     },
 
     prepareForSending: function() {
